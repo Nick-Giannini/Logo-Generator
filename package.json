@@ -4,13 +4,14 @@
   "description": "## Your Task",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "inquirer": "^8.2.4"},
   "devDependencies": {
-    "inquirer": "^9.2.7",
     "jest": "^24.9.0"
   }
 }
