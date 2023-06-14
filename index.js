@@ -1,10 +1,9 @@
 const inquirer = require('inquirer');
-const fs = require('fs');
-const Shapes = require('./Develop/js/shapes');
+const {Square,Circle,Triangle} = require('./Develop/js/shapes');
+const Svg = require('./Develop/js/svg');
 
 const promptUser = () => {
-    inquirer
-        .prompt([
+    inquirer.prompt([
             {
                 type: 'input',
                 message: 'Enter text for logo. (Must not be more than 3 characters.)',
@@ -29,11 +28,28 @@ const promptUser = () => {
         ]);
 };
 
-
 const init = () => {
-    promptUser();
+    promptUser()
     .then(({ text, textColor, shape, shapeColor }) => {
-        Shapes(text, textColor, shape, shapeColor).render();
+        if (shape === 'Triangle') {
+            const tri=new Triangle()
+            tri.setColor(shapeColor);
+        }
+        if (shape === 'Circle') {
+            const cir = new Circle()
+            cir.setColor(shapeColor);
+
+        }
+        if (shape === 'Square') {
+            const squ = new Square()
+            squ.setColor(shapeColor);
+
+        }
+        Svg.setText(text, textColor);
+
+
+
+
     })
 
 };
